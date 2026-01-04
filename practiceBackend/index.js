@@ -14,17 +14,26 @@ const app = express();
 
 // Middleware
 // ⚠️ Always put CORS BEFORE routes
-app.use(cors({
-  origin: [
-    "http://localhost:5173", // local dev
-    "https://gym-application-adj9.vercel.app" // deployed frontend
-  ],
+const allowedOrigins = [
+  "http://localhost:5173", // local dev
+  "https://gym-application-adj9.vercel.app" // deployed frontend
+];
+
+const corsOptions = {
+  origin: (origin, callback) => {
+    // allow non-browser clients (like curl/postman) that don't send Origin
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) return callback(null, true);
+    return callback(new Error(`CORS blocked for origin: ${origin}`));
+  },
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   credentials: true
-}));
+};
+
+app.use(cors(corsOptions));
 
 // OPTIONS preflight fix
-app.options(/.*/, cors());
+app.options(/.*/, cors(corsOptions));
 
 // Body parser
 app.use(express.json());
