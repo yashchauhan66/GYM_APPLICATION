@@ -1,0 +1,501 @@
+/* ========================================
+   PREMIUM GYM CONTACT PAGE STYLES
+   ======================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #ff4500;
+  --primary-dark: #cc3700;
+  --secondary: #1a1a1a;
+  --dark: #0d0d0d;
+  --light: #ffffff;
+  --gray: #666666;
+  --gray-light: #f5f5f5;
+  --shadow: rgba(0, 0, 0, 0.3);
+  --gradient: linear-gradient(135deg, #ff4500 0%, #ff6347 100%);
+}
+
+.contact-page {
+  background: var(--dark);
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(255, 69, 0, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(255, 69, 0, 0.05) 0%, transparent 50%);
+  color: var(--light);
+  min-height: 100vh;
+  position: relative;
+}
+
+.contact-page::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 255, 255, 0.01) 2px,
+      rgba(255, 255, 255, 0.01) 4px
+    );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.contact-page > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* ========================================
+   HERO SECTION
+   ======================================== */
+
+.contact-hero {
+  display: none;
+}
+
+.hero-img {
+  display: none;
+}
+
+.hero-overlay {
+  display: none;
+}
+
+.hero-overlay h1 {
+  display: none;
+}
+
+.hero-overlay p {
+  display: none;
+}
+
+/* ========================================
+   CONTACT WRAPPER - FIXED SPACING
+   ======================================== */
+
+.contact-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 10rem 2rem 5rem;
+  position: relative;
+  z-index: 10;
+}
+
+/* ========================================
+   INFO CARDS
+   ======================================== */
+
+.contact-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.info-card {
+  background: linear-gradient(145deg, #1f1f1f 0%, #0a0a0a 100%);
+  padding: 3rem 2rem;
+  border-radius: 24px;
+  text-align: center;
+  border: 2px solid rgba(255, 69, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+.info-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient);
+  opacity: 0;
+  transition: all 0.5s ease;
+  z-index: 0;
+}
+
+.info-card::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255, 69, 0, 0.2) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.info-card:hover::before {
+  left: 0;
+  opacity: 0.15;
+}
+
+.info-card:hover::after {
+  opacity: 1;
+}
+
+.info-card:hover {
+  transform: translateY(-15px);
+  border-color: var(--primary);
+  box-shadow: 0 25px 70px rgba(255, 69, 0, 0.4);
+}
+
+.info-card .icon {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.4s ease;
+  filter: drop-shadow(0 0 10px rgba(255, 69, 0, 0.3));
+}
+
+.info-card:hover .icon {
+  transform: scale(1.2) rotate(5deg);
+  filter: drop-shadow(0 0 20px rgba(255, 69, 0, 0.6));
+}
+
+.info-card h3 {
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+  color: var(--light);
+  font-weight: 800;
+  position: relative;
+  z-index: 1;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.info-card p {
+  color: #b8b8b8;
+  line-height: 1.9;
+  font-size: 1rem;
+  margin: 0.6rem 0;
+  position: relative;
+  z-index: 1;
+  transition: color 0.3s ease;
+  font-weight: 300;
+}
+
+.info-card:hover p {
+  color: #ffffff;
+}
+
+/* ========================================
+   CONTACT FORM
+   ======================================== */
+
+.contact-form {
+  background: linear-gradient(145deg, #1f1f1f 0%, #0f0f0f 100%);
+  padding: 3.5rem;
+  border-radius: 24px;
+  border: 2px solid rgba(255, 69, 0, 0.25);
+  box-shadow: 0 15px 60px rgba(0, 0, 0, 0.6);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-form::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 69, 0, 0.15) 0%,
+    transparent 70%
+  );
+  animation: pulse 4s ease-in-out infinite;
+}
+
+.contact-form h2 {
+  font-size: 2.8rem;
+  margin-bottom: 2.5rem;
+  text-align: center;
+  color: var(--primary);
+  font-weight: 900;
+  letter-spacing: 2px;
+  position: relative;
+  z-index: 1;
+  text-transform: uppercase;
+  text-shadow: 0 0 20px rgba(255, 69, 0, 0.4);
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 1.2rem 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: var(--light);
+  font-size: 1rem;
+  font-family: inherit;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 20px rgba(255, 69, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+.contact-form button {
+  padding: 1.3rem 3rem;
+  background: var(--gradient);
+  color: var(--light);
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  box-shadow: 0 10px 30px rgba(255, 69, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-form button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.contact-form button:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.contact-form button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(255, 69, 0, 0.6);
+}
+
+.contact-form button:active {
+  transform: translateY(-1px);
+}
+
+/* ========================================
+   MAP SECTION
+   ======================================== */
+
+.map-container {
+  max-width: 1400px;
+  margin: 5rem auto;
+  padding: 0 2rem;
+  height: 500px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.6);
+  border: 2px solid rgba(255, 69, 0, 0.3);
+  position: relative;
+}
+
+.map-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 69, 0, 0.1) 0%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.map-container:hover::before {
+  opacity: 1;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  filter: grayscale(40%) contrast(1.1) brightness(0.9);
+  transition: filter 0.4s ease;
+}
+
+.map-container:hover iframe {
+  filter: grayscale(0%) contrast(1.2) brightness(1);
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 0.3;
+  }
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+@media (max-width: 1200px) {
+  .contact-wrapper {
+    padding-top: 9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-wrapper {
+    padding: 8rem 1.5rem 3rem;
+  }
+
+  .contact-cards {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+  
+  .info-card {
+    padding: 2.5rem 2rem;
+  }
+
+  .contact-form {
+    padding: 2.5rem 2rem;
+  }
+
+  .contact-form h2 {
+    font-size: 2.2rem;
+  }
+
+  .contact-form button {
+    padding: 1.2rem 2rem;
+    font-size: 1rem;
+  }
+
+  .map-container {
+    height: 350px;
+    margin: 3rem auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-wrapper {
+    padding-top: 7rem;
+  }
+
+  .info-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .info-card .icon {
+    font-size: 3.5rem;
+  }
+
+  .info-card h3 {
+    font-size: 1.4rem;
+  }
+
+  .contact-form {
+    padding: 2rem 1.5rem;
+  }
+
+  .contact-form h2 {
+    font-size: 1.8rem;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* ========================================
+   UTILITY CLASSES
+   ======================================== */
+
+.text-gradient {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.shadow-glow {
+  box-shadow: 0 0 30px rgba(255, 69, 0, 0.3);
+}

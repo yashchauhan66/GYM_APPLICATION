@@ -1,0 +1,9 @@
+import express from "express";
+
+import contactHandler from "../controllers/contactController.js";
+
+const router = express.Router();
+
+router.post("/", contactHandler);
+
+export default router;
