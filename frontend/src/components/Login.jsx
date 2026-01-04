@@ -22,7 +22,7 @@ export default function Login() {
     e.preventDefault();
     // Handle login logic here
     console.log(formData);
-    await fetch("http://localhost:5000/api/auth/login", {
+    await fetch("https://gym-application-zfff.onrender.com/api/auth/login", {
       method: "POST",
     headers: {
       "Content-Type": "application/json",

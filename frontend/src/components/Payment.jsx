@@ -27,7 +27,7 @@ const Payment = () => {
 
     try {
       const res = await fetch(
-        "http://localhost:5000/api/payment/create-checkout-session",
+        "https://gym-application-zfff.onrender.com/api/payment/create-checkout-session",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
